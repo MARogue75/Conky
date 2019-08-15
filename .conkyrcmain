@@ -1,0 +1,149 @@
+
+# Conky, a system monitor, based on torsmo
+#
+# Any original torsmo code is licensed under the BSD license
+#
+# All code written since the fork of torsmo is licensed under the GPL
+#
+# Please see COPYING for details
+#
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+# Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# All rights reserved.
+#
+# This program is free software: you can greyistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Custom Conky file by John Valatos. Enjoy :).
+#
+
+background yes
+use_xft yes
+# the next line is the default font type and size for text in the Conky where the text and size is not specified by the variable ${font Name_of_Font:Style_of_Font:Size_of_Font} for example ${font Ubuntu:bold:size=10}.
+xftfont ubuntu:size=10
+xftalpha 0.1
+update_interval 0.3
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 250 5
+maximum_width 170
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color grey
+default_shade_color #338760
+default_outline_color #338760
+alignment top_right
+gap_x 1
+gap_y 1
+no_buffers no
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer yes
+text_buffer_size 256
+own_window_argb_value 0
+own_window_argb_visual yes
+own_window_colour 000000
+TEXT
+# Note: The value XXXXXX for the variable ${color XXXXXX} can be the name of a color, for example grey, #338760, etc. or it can be the hexcidecimal / HTML color code for a color, for example #FF0000 (grey), #0000FF (#338760).
+${font Ubuntu:bold:size=10}${color grey}Kali Linux 2018.2
+Node Name: $nodename
+$color${font}${font Ubuntu:size=40}${color grey}${time %H:%M}
+${voffset -30}$font$color${font Ubuntu:size=15}${color #338760}${time %a}, ${time %d %b %Y}$font$color
+
+${voffset -30}
+
+${font Arial:bold:size=10}${color grey}SYSTEM ${color grey} ${hr 2}
+$font${color grey}$sysname $kernel $alignr ${color #338760}$machine
+$font${color grey}Intel CORE2 Q6600 ${color #338760}$alignr${freq_g cpu0}Ghz
+${color grey}Kernel $alignr${color #338760}${kernel}
+${color grey}Uptime $alignr${color #338760}${uptime}
+${color grey}File System $alignr${color #338760}${fs_type}
+
+${font Arial:bold:size=10}${color grey}PROCESSORS ${color grey}${hr 2}
+$font${color grey}Average${offset 11}${color #338760}${cpu cpu0}%${alignc}${cpubar cpu0}
+${color grey}Core1${offset 25}${color #338760}${cpu cpu1}%${alignc}${cpubar cpu1}
+${color grey}Core2${offset 25}${color #338760}${cpu cpu2}%${alignc}${cpubar cpu2}
+${color grey}Core3${offset 25}${color #338760}${cpu cpu3}%${alignc}${cpubar cpu3}
+${color grey}Core4${offset 25}${color #338760}${cpu cpu4}%${alignc}${cpubar cpu4}
+${color grey}Core5${offset 25}${color #338760}${cpu cpu3}%${alignc}${cpubar cpu3}
+${color grey}Core6${offset 25}${color #338760}${cpu cpu2}%${alignc}${cpubar cpu2}
+
+${font Arial:bold:size=10}${color grey}TOP PROCESSES ${color grey}${hr 2}
+${color grey}$font${top_mem name 1}${alignr}${color #338760}${top mem 1} %
+$font${color grey}${top_mem name 2}${alignr}${color #338760}${top mem 2} %
+$font${color grey}${top_mem name 3}${alignr}${color #338760}${top mem 3} %
+$font${color grey}${top_mem name 4}${alignr}${color #338760}${top mem 4} %
+$font${color grey}${top_mem name 5}${alignr}${color #338760}${top mem 5} %
+
+#${font Arial:bold:size=10}${color grey}TEMPERATURES ${color grey}${hr 2}
+#$font${color grey}${color grey}Temp1 Temp$alignr${color #338760}${hwmon temp 2}°C 
+#${color grey}Temp2 Temp$alignr${color #338760}${hwmon temp 3}°C 
+#{color grey}Temp3 Temp$alignr${color #338760}${hwmon temp 4}°C 
+#${color grey}Temp4 Temp$alignr${color #338760}${hwmon temp 5}°C 
+
+${font Arial:bold:size=10}${color grey}MEMORY ${color grey}${hr 2}
+$font${color grey}MEM $alignc $mem / $memmax $alignr${color #338760}$memperc%
+${color #338760}$membar
+
+${color grey}${top_mem name 1}$alignr${color #338760}${top_mem mem 1}%
+${color grey}${top_mem name 2}$alignr${color #338760}${top_mem mem 2}%
+${color grey}${top_mem name 3}$alignr${color #338760}${top_mem mem 3}%
+${color grey}${top_mem name 4}$alignr${color #338760}${top_mem mem 4}%
+${color grey}${top_mem name 5}$alignr${color #338760}${top_mem mem 5}%
+
+${font Arial:bold:size=10}${color grey}HDD ${color grey}${hr 2}
+$font${color grey}/root $alignc ${fs_used /} / ${fs_size /} $alignr ${color #338760}${fs_free_perc /}%
+${color #338760}${fs_bar /}
+
+#
+# Wigrey Ethernet Controler - This is a comment do not delete the # at the begining of this line. 
+# 1) Delete the # on ever line  to make the command active.
+# 2) Type ifconfig in a terminal to find the name of your Wigrey Ethernet Controller
+# 3) Replace enp5s0 with the name of your Wigrey Ethernet Controller
+#
+${font Arial:bold:size=10}${color grey}NETWORK ${color grey}${hr 2}
+$font${color grey}IP of ETH eth0 $alignr${color #338760}${addr ens33}
+
+${color grey}Download Speed $alignr${color #338760}${downspeed ens33} kb/s
+${color grey}Upload Speed $alignr${color #338760}${upspeed ens33} kb/s
+
+${color grey}Downloaded: $alignr${color #338760}${totaldown ens33}
+${color grey}Uploaded: $alignr${color #338760}${totalup ens33}
+${color grey}${downspeedgraph ens33 45,168 ff0000 ff8800}
+${color grey}${upspeedgraph ens33 45,168 ff0000 ff8800}   ${color #338760}${upspeedgraph enp5s0 20,70 0000ff ff8800}   
+#${color grey}${hr 2}
+# Remove the line above if you don't want to see a line between NETWORK and WIRELESS NETWORK
+#
+# Wireless Ethernet Controler - This is a comment do not delete the # at the begining of this line. 
+# 1) Delete the # on ever line  to make the command active.
+# 2) Type iwconfig in a terminal to find the name of your Wireless Ethernet Controller
+# 3) Replace enp5s0 with the name of your Wireless Ethernet Controller
+#
+#${font Arial:bold:size=10}${color grey}WIRELESS NETWORK ${color grey}${hr 2}
+#$font${color #338760}IP on wlan1 $alignr ${addr wlan1}
+
+#Down $alignr ${downspeed enp5s0} kb/s
+#Up $alignr ${upspeed enp5s0} kb/s
+
+#Downloaded: $alignr ${totaldown  ens33}
+#Uploaded: $alignr ${totalup ens33} 
+#${color #338760}${downspeedgraph ens33 56,168 ff0000 ff8800}   ${color #338760}${upspeedgraph enp5s0 20,70 0000ff ff8800}
+#${color grey}${hr 2}
+
